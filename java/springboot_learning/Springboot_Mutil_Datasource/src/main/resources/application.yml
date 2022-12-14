@@ -1,0 +1,16 @@
+master:
+  datasource:
+    url: jdbc:mysql://192.168.64.130:3306/springboot_master?charset=utf8mb4&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+    driverClassName: com.mysql.cj.jdbc.Driver
+
+
+Cluster:
+  datasource:
+    url: jdbc:mysql://192.168.64.130:3306/springboot_cluster?charset=utf8mb4&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+    driverClassName: com.mysql.cj.jdbc.Driver
+
+
