@@ -1,0 +1,2 @@
+cn.example.logFilter.starter.annotation.EnableLogFilter=\
+  cn.example.logFilter.starter.config.LogFilterAutoConfiguration
