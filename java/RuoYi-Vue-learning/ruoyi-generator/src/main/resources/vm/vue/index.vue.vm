@@ -580,7 +580,7 @@ export default {
         this.#[[$modal]]#.msgError("请先选择要删除的${subTable.functionName}数据");
       } else {
         const ${subclassName}List = this.${subclassName}List;
-        const checked${subClassName} = this.checked${subClassName};
+        const checked${subClassName} = this.checked${subClassName}
         this.${subclassName}List = ${subclassName}List.filter(function(item) {
           return checked${subClassName}.indexOf(item.index) == -1
         });
@@ -598,5 +598,5 @@ export default {
       }, `${businessName}_#[[${new Date().getTime()}]]#.xlsx`)
     }
   }
-};
+}
 </script>

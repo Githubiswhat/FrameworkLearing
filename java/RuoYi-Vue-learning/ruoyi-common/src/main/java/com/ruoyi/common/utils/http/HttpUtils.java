@@ -104,13 +104,8 @@ public class HttpUtils {
             log.info("sendPost - {}", url);
             URL realUrl = new URL(url);
             URLConnection conn = realUrl.openConnection();
-            conn.setRequestProperty("accept", "*/*");
-            conn.setRequestProperty("connection", "Keep-Alive");
-            conn.setRequestProperty("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
-            conn.setRequestProperty("Accept-Charset", "utf-8");
-            conn.setRequestProperty("contentType", "utf-8");
-            conn.setDoOutput(true);
-            conn.setDoInput(true);
+            setRequestProperty(conn);
+
             out = new PrintWriter(conn.getOutputStream());
             out.print(param);
             out.flush();
@@ -152,13 +147,7 @@ public class HttpUtils {
             sc.init(null, new TrustManager[]{new TrustAnyTrustManager()}, new java.security.SecureRandom());
             URL console = new URL(urlNameString);
             HttpsURLConnection conn = (HttpsURLConnection) console.openConnection();
-            conn.setRequestProperty("accept", "*/*");
-            conn.setRequestProperty("connection", "Keep-Alive");
-            conn.setRequestProperty("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
-            conn.setRequestProperty("Accept-Charset", "utf-8");
-            conn.setRequestProperty("contentType", "utf-8");
-            conn.setDoOutput(true);
-            conn.setDoInput(true);
+            setRequestProperty(conn);
 
             conn.setSSLSocketFactory(sc.getSocketFactory());
             conn.setHostnameVerifier(new TrustAnyHostnameVerifier());
@@ -184,6 +173,16 @@ public class HttpUtils {
             log.error("调用HttpsUtil.sendSSLPost Exception, url=" + url + ",param=" + param, e);
         }
         return result.toString();
+    }
+
+    private static void setRequestProperty(URLConnection conn) {
+        conn.setRequestProperty("accept", "*/*");
+        conn.setRequestProperty("connection", "Keep-Alive");
+        conn.setRequestProperty("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
+        conn.setRequestProperty("Accept-Charset", "utf-8");
+        conn.setRequestProperty("contentType", "utf-8");
+        conn.setDoOutput(true);
+        conn.setDoInput(true);
     }
 
     private static class TrustAnyTrustManager implements X509TrustManager {

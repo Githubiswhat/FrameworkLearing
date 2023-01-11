@@ -174,7 +174,7 @@ public class JobInvokeUtil
         int index = 0;
         for (Object[] os : methodParams)
         {
-            classs[index] = (Object) os[0];
+            classs[index] = os[0];
             index++;
         }
         return classs;

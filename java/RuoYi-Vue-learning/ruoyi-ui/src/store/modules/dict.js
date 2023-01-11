@@ -1,5 +1,5 @@
 const state = {
-  dict: new Array()
+  dict: []
 }
 const mutations = {
   SET_DICT: (state, { key, value }) => {
@@ -22,7 +22,7 @@ const mutations = {
     }
   },
   CLEAN_DICT: (state) => {
-    state.dict = new Array()
+    state.dict = []
   }
 }
 

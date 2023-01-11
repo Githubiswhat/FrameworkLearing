@@ -38,7 +38,7 @@ export default {
       } else {
         styL = +sty.left.replace(/\px/g, '');
         styT = +sty.top.replace(/\px/g, '');
-      };
+      }
 
       // 鼠标拖拽事件
       document.onmousemove = function (e) {
